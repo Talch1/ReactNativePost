@@ -1,7 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Text, Button, FlatList } from "react-native";
+import { HeaderButtons,Item } from 'react-navigation-header-buttons';
 import { DATA } from "../data";
 import { Post } from "../componets/Post";
+import { AppHeaderIcons } from '../componets/AppHeaderIcons';
 
 export const MainScreen = ({ navigation }) => {
   const openHendler = (post) => {
@@ -22,7 +24,18 @@ export const MainScreen = ({ navigation }) => {
 
 MainScreen.navigationOptions = {
   headerTitle: "My blog",
-};
+headerRight:<HeaderButtons
+HeaderButtonComponent={AppHeaderIcons}>
+<Item title = "take photo" iconName = "ios-camera" 
+onPress=  {()=>console.log("press photo")}/>
+</HeaderButtons>,
+
+headerLeft:<HeaderButtons
+HeaderButtonComponent={AppHeaderIcons}>
+<Item title = "menu" iconName = "ios-menu" 
+onPress=  {()=>console.log("press photo")}/>
+</HeaderButtons>
+}
 const styles = StyleSheet.create({
   wrap: {
     padding: 10,
